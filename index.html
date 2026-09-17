@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Saudi WebAR</title>
 
-  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
   <style>
@@ -19,37 +20,38 @@
 <body>
 
   <a-scene
-    mindar-image="imageTargetSrc: ./targets.mind; maxTrack: 2;"
+    mindar-image="imageTargetSrc: ./targets.mind"
+    embedded
     color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights"
+    renderer="colorManagement: true"
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
 
     <a-camera
       position="0 0 0"
-      look-controls="enabled: false"
-      cursor="fuse: false"
-      raycaster="objects: .clickable">
+      look-controls="enabled: false">
     </a-camera>
 
-    <!-- البطاقة الأولى -->
     <a-entity mindar-image-target="targetIndex: 0">
-      <a-image
-        src="https://dummyimage.com/600x600/ffffff/000000.png&text=OVERLAY+1"
+
+      <a-plane
         position="0 0 0"
         width="1"
-        height="1">
-      </a-image>
+        height="1"
+        color="#00A86B">
+      </a-plane>
+
     </a-entity>
 
-    <!-- البطاقة الثانية -->
     <a-entity mindar-image-target="targetIndex: 1">
-      <a-image
-        src="https://dummyimage.com/600x600/ffffff/000000.png&text=OVERLAY+2"
+
+      <a-plane
         position="0 0 0"
         width="1"
-        height="1">
-      </a-image>
+        height="1"
+        color="#FFFFFF">
+      </a-plane>
+
     </a-entity>
 
   </a-scene>
